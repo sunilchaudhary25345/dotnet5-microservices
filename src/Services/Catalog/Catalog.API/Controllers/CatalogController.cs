@@ -44,7 +44,7 @@ namespace Catalog.API.Controllers
             return Ok(product);
         }
 
-        [Route("[action]/{name}", Name = "GetProductByName")]
+        [Route("[action]/{name}", Name = "GetProductsByName")]
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductsByName(string name)
@@ -53,12 +53,12 @@ namespace Catalog.API.Controllers
             return Ok(products);
         }
 
-        [Route("[action]/{category}", Name = "GetProductByCategory")]
+        [Route("[action]/{category}", Name = "GetProductsByCategory")]
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(string category)
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductsByCategory(string category)
         {
-            var products = await _repository.GetProductsByName(category);
+            var products = await _repository.GetProductsByCategory(category);
             return Ok(products);
         }
 
